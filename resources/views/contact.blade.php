@@ -137,12 +137,12 @@
 
 
 
-
+{{--
                 {!! NoCaptcha::display() !!}
 
                 @if ($errors->has('g-recaptcha-response'))
                   <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
-                @endif
+                @endif --}}
 
 
                 <button type="submit" class="btn btn-style1">{!!$contactsetting->button_text!!}</button>
