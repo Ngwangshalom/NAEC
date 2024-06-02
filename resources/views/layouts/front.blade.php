@@ -362,18 +362,20 @@
     <script>
         $(document).ready(function() {
             $(".slider-venor.owl-carousel").owlCarousel({
-                items: 1, // Number of items to display
-                lazyLoad: true, // Enable lazy load
-                loop: true, // Enable looping
-                autoplay: true, // Enable automatic sliding
-                autoplayTimeout: 5000, // Delay between slides in ms
-                autoplayHoverPause: true, // Pause on hover
-                nav: true, // Show navigation buttons
-                dots: true, // Show pagination dots
+                items: 1,
+                lazyLoad: true,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                nav: true,
+                dots: true,
                 navText: ["<span class='nav-btn prev-slide'>&#10094;</span>", "<span class='nav-btn next-slide'>&#10095;</span>"],// Custom navigation buttons
             });
         });
+
         </script>
+     
 
 
 </body>
