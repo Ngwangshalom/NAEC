@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Http\Requests\ProjectRequest; 
-use App\Http\Requests\ProjectEditRequest; 
+use App\Http\Requests\ProjectRequest;
+use App\Http\Requests\ProjectEditRequest;
 use App\Models\Photo;
 use App\Models\Setting;
 use App\Models\Menu;
-use App\Models\HeaderFooterSetting; 
+use App\Models\HeaderFooterSetting;
 use DB;
 use View;
 use Illuminate\Support\Facades\Auth;
@@ -60,10 +60,10 @@ class ProjectController extends Controller
         $user = Auth::user();
 
         if ($file = $request->file('photo_id')) {
-            
+
             $name = time() . $file->getClientOriginalName();
 
-            $file->move('images/media/', $name);
+            $file->move('public/images/media/', $name);
 
             $photo = Photo::create(['file'=>$name]);
 
@@ -95,15 +95,15 @@ class ProjectController extends Controller
      */
     public function update(ProjectEditRequest $request, Project $project)
     {
-        
+
         $input = $request->all();
-        
+
 
         if ($file = $request->file('photo_id')) {
-            
+
             $name = time() . $file->getClientOriginalName();
 
-            $file->move('images/media/', $name);
+            $file->move('public/images/media/', $name);
 
             $photo = Photo::create(['file'=>$name]);
 
@@ -140,7 +140,7 @@ class ProjectController extends Controller
 
     // Show a project by slug
     public function show_slug($slug = 'home')
-    {   
+    {
 
         if (session()->has('lang')) {
             $currentLang = Language::where('code', session()->get('lang'))->first();
@@ -164,7 +164,7 @@ class ProjectController extends Controller
         } else {
             abort(404);
         }
-        
+
     }
 
 
