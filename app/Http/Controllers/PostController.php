@@ -3,14 +3,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Category;
-use App\Models\HeaderFooterSetting; 
+use App\Models\HeaderFooterSetting;
 use App\Models\Setting;
 use App\Models\BlogSetting;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Http\Requests\PostRequest; 
-use App\Http\Requests\PostEditRequest; 
+use App\Http\Requests\PostRequest;
+use App\Http\Requests\PostEditRequest;
 use App\Models\Photo;
 use DB;
 use Illuminate\Support\Facades\Auth;
@@ -67,7 +67,7 @@ class PostController extends Controller
 
         if ($file = $request->file('photo_id')) {
             $name = time() . $file->getClientOriginalName();
-            $file->move('images/media/', $name);
+            $file->move('public/images/media/', $name);
             $photo = Photo::create(['file'=>$name]);
             $input['photo_id'] = $photo->id;
         }
@@ -98,14 +98,14 @@ class PostController extends Controller
      */
     public function update(PostEditRequest $request, Post $post)
     {
-        
+
         $input = $request->all();
 
         if ($file = $request->file('photo_id')) {
-            
+
             $name = time() . $file->getClientOriginalName();
 
-            $file->move('images/media/', $name);
+            $file->move('public/images/media/', $name);
 
             $photo = Photo::create(['file'=>$name]);
 
@@ -170,7 +170,7 @@ class PostController extends Controller
         } else {
             abort(404);
         }
-        
+
     }
 
 
