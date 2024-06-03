@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Language;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Http\Requests\LanguageRequest; 
+use App\Http\Requests\LanguageRequest;
 use App\Models\Photo;
 
 class LanguageController extends Controller
@@ -36,10 +36,10 @@ class LanguageController extends Controller
         $input = $request->all();
 
         if ($file = $request->file('photo_id')) {
-            
+
             $name = time() . $file->getClientOriginalName();
 
-            $file->move('images/media/', $name);
+            $file->move('public/images/media/', $name);
 
             $photo = Photo::create(['file'=>$name]);
 
@@ -66,14 +66,14 @@ class LanguageController extends Controller
      */
     public function update(Request $request, Language $language)
     {
-        
+
         $input = $request->all();
 
         if ($file = $request->file('photo_id')) {
-            
+
             $name = time() . $file->getClientOriginalName();
 
-            $file->move('images/media/', $name);
+            $file->move('public/images/media/', $name);
 
             $photo = Photo::create(['file'=>$name]);
 

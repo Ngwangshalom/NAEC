@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Member;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Http\Requests\MemberRequest; 
+use App\Http\Requests\MemberRequest;
 use App\Models\Photo;
 
 class MemberController extends Controller
@@ -36,10 +36,10 @@ class MemberController extends Controller
         $input = $request->all();
 
         if ($file = $request->file('photo_id')) {
-            
+
             $name = time() . $file->getClientOriginalName();
 
-            $file->move('images/media/', $name);
+            $file->move('public/images/media/', $name);
 
             $photo = Photo::create(['file'=>$name]);
 
@@ -66,14 +66,14 @@ class MemberController extends Controller
      */
     public function update(Request $request, Member $member)
     {
-        
+
         $input = $request->all();
 
         if ($file = $request->file('photo_id')) {
-            
+
             $name = time() . $file->getClientOriginalName();
 
-            $file->move('images/media/', $name);
+            $file->move('public/images/media/', $name);
 
             $photo = Photo::create(['file'=>$name]);
 
