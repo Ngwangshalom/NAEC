@@ -14,15 +14,15 @@ use App\Models\Pricing;
 use App\Models\PricingSetting;
 use App\Models\ContactSetting;
 use App\Models\Client;
-use App\Models\HomeSetting; 
+use App\Models\HomeSetting;
 use App\Models\AboutSetting;
 use App\Models\PortfolioSetting;
-use App\Models\ProjectCategory; 
-use App\Models\HeaderFooterSetting; 
+use App\Models\ProjectCategory;
+use App\Models\HeaderFooterSetting;
 use App\Models\BlogSetting;
 use View;
 use Illuminate\Http\Request;
-use App\Http\Requests\ContactFormRequest; 
+use App\Http\Requests\ContactFormRequest;
 use Mail;
 use Validator;
 use DB;
@@ -55,11 +55,11 @@ class HomeController extends Controller
 
         $lang_id = $currentLang->id;
 
-        
-        
+
+
         $langs = Language::all();
-        
-        
+
+
 
         $data['sliders'] = Slider::where('language_id', $lang_id)->get();
         $data['menus'] = Menu::where('language_id', $lang_id)->get();
@@ -74,7 +74,7 @@ class HomeController extends Controller
         return view('home', compact('langs'), $data);
     }
     public function about()
-    {   
+    {
 
         if (session()->has('lang')) {
             $currentLang = Language::where('code', session()->get('lang'))->first();
@@ -107,7 +107,7 @@ class HomeController extends Controller
         } else {
             abort(404);
         }
-        
+
     }
 
     public function portfolio()
@@ -129,7 +129,7 @@ class HomeController extends Controller
         $data['projects'] = Project::where('language_id', $lang_id)->get();
         $data['portfoliosettings'] = PortfolioSetting::find($lang_id);
         $data['project_categories'] = ProjectCategory::where('language_id', $lang_id)->get();
-        
+
         return view('portfolio', $data, compact('langs'));
     }
     public function blog()
@@ -151,7 +151,7 @@ class HomeController extends Controller
 
         return view('blog', $data, compact('langs'));
     }
-    
+
     public function pricing()
     {
         if (session()->has('lang')) {
@@ -180,7 +180,7 @@ class HomeController extends Controller
             'g-recaptcha-response.required' => 'You must check the reCAPTCHA.',
             'g-recaptcha-response.captcha' => 'Captcha error! try again later or contact site admin.',
         ];
- 
+
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email',
@@ -189,7 +189,7 @@ class HomeController extends Controller
             'comment' => 'required',
             'g-recaptcha-response' => 'required|captcha'
         ], $messages);
- 
+
         if ($validator->fails()) {
             return back()
                         ->withErrors($validator)
@@ -205,13 +205,13 @@ class HomeController extends Controller
                 'phone' => $request->get('phone'),
                 'budget' => $request->get('budget'),
                 'comment' => $request->get('comment') ],
-               
+
                 function ($message) {
                         $message->from('contact@lucian.host');
                         $message->to('contact@lucian.host', 'Your Name')
                         ->subject('Your Website Contact Form');
         });
-        return back()->with('success', 'Thanks for contacting me, I will get back to you soon!');
+        return back()->with('success', 'Thanks for contacting us, I will get back to you soon!');
     }
 
     public function contact()
@@ -265,9 +265,9 @@ class HomeController extends Controller
             ->where('title', 'like', '%'.$request->project.'%')
             ->where('language_id', $lang_id)
             ->get();
-           
+
             $output = '';
-           
+
             if (count($projects)>0) {
                 $output = '<ul class="list-group">';
                 foreach ($projects as $row){

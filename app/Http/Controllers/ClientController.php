@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Http\Requests\ClientRequest; 
+use App\Http\Requests\ClientRequest;
 use App\Models\Photo;
 
 class ClientController extends Controller
@@ -36,10 +36,10 @@ class ClientController extends Controller
         $input = $request->all();
 
         if ($file = $request->file('photo_id')) {
-            
+
             $name = time() . $file->getClientOriginalName();
 
-            $file->move('images/media/', $name);
+            $file->move('public/images/media/', $name);
 
             $photo = Photo::create(['file'=>$name]);
 
@@ -66,14 +66,14 @@ class ClientController extends Controller
      */
     public function update(ClientRequest $request, Client $client)
     {
-        
+
         $input = $request->all();
 
         if ($file = $request->file('photo_id')) {
-            
+
             $name = time() . $file->getClientOriginalName();
 
-            $file->move('images/media/', $name);
+            $file->move('public/images/media/', $name);
 
             $photo = Photo::create(['file'=>$name]);
 
