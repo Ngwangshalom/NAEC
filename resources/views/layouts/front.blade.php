@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="description" content="@yield('meta')">
-    <link rel="canonical" href="{{url()->current()}}">
+    <link rel="canonical" hspace-betweenref="{{url()->current()}}">
     <meta name="keywords" content="{{$setting->keywords}}" />
     <meta name="publisher" content="{{url()->current()}}">
     <meta name="copyright" content="Copyright (c) {{$setting->title}}" />
@@ -56,6 +56,7 @@
 
         gtag('config', '{{$setting->analytics}}');
     </script>
+
 
     @endif
 
@@ -131,11 +132,10 @@
     <header class="header">
 
 
-
         <div class="header__content__venor">
             <div class="header__logo">
                 <a href="{{url('/')}}" title="{{$setting->title}}">
-                    <img width="105" height="22" class="img-fluid logo-front" src="{{$setting->photo ? '/public/images/media/' . 'quasar-edge-high-resolution-logo-white-transparent.png': '/public/img/200x200.png'}}" alt="logo">
+                    <img width="200" height="340" class="img-fluid logo-front" src="{{$setting->photo ? '/public/images/media/' . '1717862657naec.png': '/public/img/200x200.png'}}" alt="logo">
                 </a>
             </div>
 
@@ -359,24 +359,47 @@
     @endif
 
     @yield('scripts')
-    <script>
-        $(document).ready(function() {
-            $(".slider-venor.owl-carousel").owlCarousel({
-                items: 1,
-                lazyLoad: true,
-                loop: true,
-                autoplay: true,
-                autoplayTimeout: 5000,
-                autoplayHoverPause: true,
-                nav: true,
-                dots: true,
-                navText: ["<span class='nav-btn prev-slide'>&#10094;</span>", "<span class='nav-btn next-slide'>&#10095;</span>"],// Custom navigation buttons
-            });
+    {{-- <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          const slides = document.querySelectorAll(".slide");
+          const next = document.querySelector(".next");
+          const prev = document.querySelector(".prev");
+          let index = 0;
+
+          function changeSlide(newIndex) {
+            slides[index].classList.remove("is-active");
+            index = (newIndex + slides.length) % slides.length;
+            slides[index].classList.add("is-active");
+          }
+
+          next.addEventListener("click", function() {
+            changeSlide(index + 1);
+          });
+
+          prev.addEventListener("click", function() {
+            changeSlide(index - 1);
+          });
+
+          setInterval(() => {
+            changeSlide(index + 1);
+          }, 5000);
         });
+        </script> --}}
 
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const cards = document.querySelectorAll(".card");
+
+                cards.forEach(card => {
+                    card.addEventListener("mouseenter", function() {
+                        card.classList.add("hovered");
+                    });
+
+                    card.addEventListener("mouseleave", function() {
+                        card.classList.remove("hovered");
+                    });
+                });
+            });
         </script>
-     
-
-
 </body>
 </html>

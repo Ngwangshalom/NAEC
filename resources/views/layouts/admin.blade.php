@@ -31,7 +31,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fab fa-github"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Venor<sup>v2.0</sup></div>
+                <div class="sidebar-brand-text mx-3">Nnova<sup>2.0</sup></div>
             </a>
 
             <!-- Divider -->
@@ -274,7 +274,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>{{clean( trans('niva-backend.copyright_text') , array('Attr.EnableID' => true))}}</span>
+                        <span>2024 Nnova Technologies Dashboard</span>
                     </div>
                 </div>
             </footer>

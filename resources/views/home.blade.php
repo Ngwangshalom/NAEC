@@ -1,43 +1,130 @@
 @extends('layouts.front')
 
-@section('title') {{$homesetting->meta_title}} @endsection
-@section('meta') {{$homesetting->meta_description}} @endsection
-
+@section('title', $homesetting->meta_title)
+@section('meta', $homesetting->meta_description)
 
 @section('content')
+<style>
+    .slideshow {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 93vh;
+    }
 
-<div class="slider-venor-section">
-    <div class="slider-venor owl-carousel">
-        @foreach($sliders as $slido)
-        <div class="slider-inner-venor">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-5">
-                        <div class="slider-content">
-                            <h1>{!! $slido->heading1 !!}</h1>
-                            <h2 class="@if($slido->typed_text) typed_active @endif">{!! $slido->heading2 !!}</h2>
-                            @if($slido->typed_text)
-                            <script type="text/javascript">
-                                var arr = {!! $slido->typed_text !!};
-                            </script>
-                            @endif
-                            <div class="slider-body">{!! $slido->bodyslider !!}</div>
-                            <a href="{!! $slido->button_link !!}" target="_self" class="btn btn-slider"><span>{!! $slido->button_text !!}</span></a>
-                            <a href="{!! $slido->button_link2 !!}" target="_self" class="btn btn-slider2"><span>{!! $slido->button_text2 !!}</span></a>
-                        </div>
+    .carousel-item {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transition: transform 0.6s ease;
+    }
+
+    .carousel-item img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+
+    .carousel-caption {
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.3);
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        width: 50%;
+        transition: transform 0.3s ease;
+    }
+
+    .carousel-caption h5,
+    .carousel-caption p {
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
+    *{
+        overflow-x: hidden;
+    }
+        .slideshow {
+            height: 40vh;
+        }
+
+        .carousel-caption {
+            top: 70%;
+            max-width: 90%;
+        }
+
+        .btn-group {
+            flex-direction: column;
+        }
+
+        .btn {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    }
+</style>
+
+<section class="slideshow" id="slideshow">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="http://localhost:8000/public/images/media/1719435557IMG-20200717-WA0130.jpg" class="d-block w-100" alt="Slide 1">
+                <div class="carousel-caption">
+                    <h5>Film Making Excellence</h5>
+                    <p>Embark on a journey of cinematic storytelling with our expert film production services. From conceptualization to execution, we bring narratives to life with unmatched creativity and technical prowess.</p>
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-style1">Learn More</a>
+                        <a href="#" class="btn btn-style1">Explore</a>
                     </div>
-                    <div class="col-md-7">
-                        <div class="slider-image">
-                            <img width="450" height="450" class="owl-lazy img-fluid slider-img" src="/public/img/loading-blog.gif" data-src="{{ $slido->photo ? '/public/images/media/' . $slido->photo->file : '/public/img/200x200.png' }}" alt="">
-                        </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="http://localhost:8000/public/images/media/1719437769theater.jpg" class="d-block w-100" alt="Slide 2">
+                <div class="carousel-caption">
+                    <h5>Theater</h5>
+                    <p>Experience the art of photography like never before. Our creative photoshoots capture not just moments, but emotions and stories, turning fleeting instances into timeless memories.</p>
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-style1">Learn More</a>
+                        <a href="#" class="btn btn-style1">Explore</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="http://localhost:8000/public/images/media/1719439328DSC_7625.jpg" class="d-block w-100" alt="Slide 3">
+                <div class="carousel-caption">
+                    <h5>Community Engagement</h5>
+                    <p>Transform your digital visions into tangible reality with our expert printing services. Whether it's posters, banners, or high-quality prints, we deliver precision and excellence in every detail.</p>
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-style1">Learn More</a>
+                        <a href="#" class="btn btn-style1">Explore</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="http://localhost:8000/public/images/media/1719435597biyeh.jpg" class="d-block w-100" alt="Slide 4">
+                <div class="carousel-caption">
+                    <h5>Youth Empowerment</h5>
+                    <p>Dive into compelling stories and transformative narratives through our captivating documentaries. We uncover truths, provoke thoughts, and inspire action with each frame and storyline.</p>
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-style1">Learn More</a>
+                        <a href="#" class="btn btn-style1">Explore</a>
                     </div>
                 </div>
             </div>
         </div>
-        @endforeach
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
-</div>
-
+</section>
 
 
 
@@ -151,6 +238,7 @@
                                     <div class="project-meta-title">
                                         <span class="project__text">{{$project->title}}</span>
                                     </div>
+
                                     <div class="divider"></div>
                                     <div class="project-category">
                                         <span class="block_text">{{$project->project_category->name}} </span>
@@ -204,6 +292,12 @@
                     <div class="radial">
                         <span class="timer" data-from="0" data-to="{{$homesetting->count_number4}}" data-speed="4000">{{$homesetting->count_number4}}</span>
                         <h4>{{$homesetting->count_description4}}</h4>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="radial">
+                        <span class="timer" data-from="0" data-to="500000" data-speed="5000">500,000</span>
+                        <h4>People Reached Online</h4>
                     </div>
                 </div>
             </div>
@@ -290,7 +384,44 @@
 
     </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          const slides = document.querySelectorAll(".slide");
+          const next = document.querySelector(".next");
+          const prev = document.querySelector(".prev");
+          let index = 0;
 
+          function changeSlide(newIndex) {
+            slides[index].classList.remove("is-active");
+            index = (newIndex + slides.length) % slides.length;
+            slides[index].classList.add("is-active");
+          }
+
+          next.addEventListener("click", function() {
+            changeSlide(index + 1);
+          });
+
+          prev.addEventListener("click", function() {
+            changeSlide(index - 1);
+          });
+
+          setInterval(() => {
+            changeSlide(index + 1);
+          }, 5000);
+        });
+        </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const slideshowHeight = document.getElementById('slideshow').clientHeight;
+        const carouselImages = document.querySelectorAll('.carousel-item img');
+
+        carouselImages.forEach(img => {
+            img.style.height = slideshowHeight + 'px';
+        });
+    });
+</script>
 
 @endsection
+
 

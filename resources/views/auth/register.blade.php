@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        
+
                                         <input id="password" type="password" placeholder="{{ __('Password') }}" class="form-control form-control-user @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                         @error('password')
@@ -53,7 +53,7 @@
 
                                     </div>
                                     <div class="col-sm-6">
-                                        <input id="password-confirm" type="password" class="form-control form-control-user" placeholder="{{ __('Confirm Password') }}" name="password_confirmation" required autocomplete="new-password"> 
+                                        <input id="password-confirm" type="password" class="form-control form-control-user" placeholder="{{ __('Confirm Password') }}" name="password_confirmation" required autocomplete="new-password">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
@@ -70,9 +70,9 @@
                                     <a class="small" href="{{ route('password.request') }}"> {{ __('Forgot Your Password?') }}</a>
                                 @endif
                             </div>
-                            <div class="text-center">
+                            {{-- <div class="text-center">
                                 <a class="small" href="{{ route('login') }}">{{clean( trans('niva-backend.already_acc') , array('Attr.EnableID' => true))}}</a>
-                            </div>
+                            </div> --}}
 
                         </div>
                     </div>

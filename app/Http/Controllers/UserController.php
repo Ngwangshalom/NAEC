@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Requests\UserRequest; 
-use App\Http\Requests\UserEditRequest; 
+use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserEditRequest;
 use App\Models\Role;
 use App\Models\Photo;
 use Illuminate\Support\Facades\Session;
@@ -22,7 +22,7 @@ class UserController extends Controller
     {
         $users = User::latest()->paginate(5);
 
-        
+
 
         return view('users.index', compact('users'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -56,10 +56,10 @@ class UserController extends Controller
         }
 
         if ($file = $request->file('photo_id')) {
-            
+
             $name = time() . $file->getClientOriginalName();
 
-            $file->move('images/media/', $name);
+            $file->move('public/images/media/', $name);
 
             $photo = Photo::create(['file'=>$name]);
 
@@ -109,12 +109,12 @@ class UserController extends Controller
             $input = $request->all();
             $input['password'] = bcrypt($request->password);
         }
-     
+
         if ($file = $request->file('photo_id')) {
-            
+
             $name = time() . $file->getClientOriginalName();
 
-            $file->move('images/media/', $name);
+            $file->move('public/images/media/', $name);
 
             $photo = Photo::create(['file'=>$name]);
 

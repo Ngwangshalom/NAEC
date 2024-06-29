@@ -32,6 +32,10 @@ body::-webkit-scrollbar-thumb {
    border-radius: 12px;
 }
 
+.commercial{
+    display: flex;
+    flex-direction: row;
+}
 
 @media (min-width: 1300px) {
     header.header-venor > nav.navbar.navbar-expand-lg {
@@ -48,7 +52,7 @@ body::-webkit-scrollbar-thumb {
         background: #16151a;
         z-index: 9999;
         right: 0;
-        -webkit-box-shadow: 0 7px 8px 0 rgb(0 0 0 / 6%);
+        -webkit-box-shadow: 0 7px 8px 0 rgba(216, 139, 39, 0.06);
         box-shadow: 0 7px 8px 0 rgb(0 0 0 / 6%);
         border-bottom: 1px solid #222227;
     }
@@ -95,7 +99,7 @@ body::-webkit-scrollbar-thumb {
 
 .header__logo img {
     width: auto;
-    height: 35px;
+    height: 70px;
     display: block;
 }
 
@@ -3733,6 +3737,7 @@ span.cookie-consent__message a:hover {
         -ms-flex: 0 0 30.666667%;
         flex: 0 0 30.666667%;
         max-width: 30.666667%;
+        padding:0;
     }
     header.header-venor .navbar-menu.col-md-8 button.navbar-toggler {
         position: relative;
@@ -3867,7 +3872,10 @@ span.cookie-consent__message a:hover {
         position: static;
         padding: 0;
     }
-
+    .slider-venor-section, .breadcrumb-area {
+        background-size: contain;
+        padding:0;
+    }
     .header.header-venor .navbar-menu.col-md-8 button.navbar-toggler {
         position: absolute;
     }

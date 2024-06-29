@@ -37,7 +37,7 @@ class SettingController extends Controller
     {
 
         $setting = Setting::where('language_id', $langid)->firstOrFail();
-        
+
         $input = $request->all();
 
         $this->validate($request, [
@@ -47,10 +47,10 @@ class SettingController extends Controller
         );
 
         if ($file = $request->file('photo_id')) {
-            
+
             $name = time() . $file->getClientOriginalName();
 
-            $file->move('images/media/', $name);
+            $file->move('public/images/media/', $name);
 
             $photo = Photo::create(['file'=>$name]);
 

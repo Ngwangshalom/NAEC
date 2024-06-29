@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://www.niva.lucian.host'),
+    'url' => env('APP_URL', 'https://www.quasaredge.cm'),
 
     'asset_url' => env('ASSET_URL', null),
 

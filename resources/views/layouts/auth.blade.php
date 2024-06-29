@@ -17,6 +17,9 @@
     .bg-gradient-primary{
         background-image: url('../../../public/images/media/backgrounds.png');
     }
+    .bg-login-image, .bg-register-image{
+        background-image: url('../../../public/images/media/16220532141615636710about-s2.jpg');
+    }
 </style>
     @yield('styles')
 
