@@ -157,7 +157,7 @@
 
 
 
-   <div class="clients-section">
+   {{-- <div class="clients-section">
         <div class="container">
 
             <div class="clients-slider owl-carousel">
@@ -169,7 +169,7 @@
             </div>
 
         </div>
-    </div>
+    </div> --}}
 
 
 

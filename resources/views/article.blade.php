@@ -6,8 +6,8 @@
 
 
 @section('content')
-  
-  
+
+
    <div class="breadcrumb-area">
        <h1 class="breadcrumb-title">{{$post->meta_title}}</h1>
    </div>
@@ -15,8 +15,7 @@
    <div class="post-content blog-page-section">
    		<div class="container">
    			<div class="row">
-
-   				<div class="col-md-8">
+                <div class="col-md-8">
    					<article class="single-post blogloop-v2">
 	                   <div class="blog_custom">
 	                      <div class="post-thumbnail">
@@ -31,10 +30,10 @@
 	                            <div class="post-author-avatar">
 	                               <img alt="" src="/public/img/loading-blog.gif" data-src="{{$post->user->photo ? '/public/images/media/' . $post->user->photo->file : '/public/img/200x200.png'}}" class="avatar img-fluid lazy" height="120" width="120">
 	                             </div>
-	                            
+
 	                            <h2 class="post-name">
-	                                  {{$post->title}}                   
-	                          
+	                                  {{$post->title}}
+
 	                            </h2>
 
 	                            <div class="post-category-comment-date">
@@ -51,7 +50,7 @@
    				</div>
 
    				<div class="col-md-4">
-                
+
 	                <div class="widget_element">
 	                   {!!$blogsettings->html_sidebar1!!}
 	                </div>
@@ -67,7 +66,7 @@
 
 
    		</div>
-   		
+
    	</div>
 
 

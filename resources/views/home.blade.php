@@ -76,8 +76,8 @@
                     <h5>Film Making Excellence</h5>
                     <p>Embark on a journey of cinematic storytelling with our expert film production services. From conceptualization to execution, we bring narratives to life with unmatched creativity and technical prowess.</p>
                     <div class="btn-group">
-                        <a href="#" class="btn btn-style1">Learn More</a>
-                        <a href="#" class="btn btn-style1">Explore</a>
+                        <a href="http://localhost:8000/about-us" class="btn btn-style1">Learn More</a>
+                        <a href="http://localhost:8000/portfolio" class="btn btn-style1">Explore</a>
                     </div>
                 </div>
             </div>
@@ -85,10 +85,10 @@
                 <img src="http://localhost:8000/public/images/media/1719437769theater.jpg" class="d-block w-100" alt="Slide 2">
                 <div class="carousel-caption">
                     <h5>Theater</h5>
-                    <p>Experience the art of photography like never before. Our creative photoshoots capture not just moments, but emotions and stories, turning fleeting instances into timeless memories.</p>
+                    <p>Experience the art of Theater like never before. Our creative Theater capture not just moments, but emotions and stories, turning fleeting instances into timeless memories.</p>
                     <div class="btn-group">
-                        <a href="#" class="btn btn-style1">Learn More</a>
-                        <a href="#" class="btn btn-style1">Explore</a>
+                        <a href="http://localhost:8000/about-us" class="btn btn-style1">Learn More</a>
+                        <a href="http://localhost:8000/portfolio" class="btn btn-style1">Explore</a>
                     </div>
                 </div>
             </div>
@@ -98,8 +98,8 @@
                     <h5>Community Engagement</h5>
                     <p>Transform your digital visions into tangible reality with our expert printing services. Whether it's posters, banners, or high-quality prints, we deliver precision and excellence in every detail.</p>
                     <div class="btn-group">
-                        <a href="#" class="btn btn-style1">Learn More</a>
-                        <a href="#" class="btn btn-style1">Explore</a>
+                        <a href="http://localhost:8000/about-us" class="btn btn-style1">Learn More</a>
+                        <a href="http://localhost:8000/portfolio" class="btn btn-style1">Explore</a>
                     </div>
                 </div>
             </div>
@@ -109,8 +109,8 @@
                     <h5>Youth Empowerment</h5>
                     <p>Dive into compelling stories and transformative narratives through our captivating documentaries. We uncover truths, provoke thoughts, and inspire action with each frame and storyline.</p>
                     <div class="btn-group">
-                        <a href="#" class="btn btn-style1">Learn More</a>
-                        <a href="#" class="btn btn-style1">Explore</a>
+                        <a href="http://localhost:8000/about-us" class="btn btn-style1">Learn More</a>
+                        <a href="http://localhost:8000/portfolio" class="btn btn-style1">Explore</a>
                     </div>
                 </div>
             </div>
@@ -167,7 +167,7 @@
 
                     {!!$homesetting->about_description!!}
 
-                    <a href="{{$homesetting->about_buttonlink}}" target="_self" class="btn btn-style1"><span>{{$homesetting->about_buttontext}}</span></a>
+                    <a href="/contact" target="_self" class="btn btn-style1"><span>{{$homesetting->about_buttontext}}</span></a>
 
                 </div>
 
@@ -177,7 +177,7 @@
     </div>
 
 
-    <div class="services-section">
+    {{-- <div class="services-section">
         <div class="container">
 
             <h3>{!!$homesetting->services_title!!}</h3>
@@ -212,7 +212,7 @@
             </div>
 
         </div>
-    </div>
+    </div> --}}
 
      <div class="portfolio-section">
         <div class="container">

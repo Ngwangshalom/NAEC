@@ -6,8 +6,8 @@
 
 
 @section('content')
-  
-  
+
+
    <div class="breadcrumb-area">
        <h1 class="breadcrumb-title">{{$blogsettings->meta_title}}</h1>
        <ul class="page-list">
@@ -20,9 +20,9 @@
    <div class="blog-page-section">
       <div class="container">
         <div class="row">
-            
+
             <div class="col-md-8">
-                
+
             @foreach($posts as $post)
                 <article class="single-post blogloop-v2">
                    <div class="blog_custom">
@@ -38,10 +38,10 @@
                             <div class="post-author-avatar">
                                <img alt="" src="/public/img/loading-blog.gif" data-src="{{$post->user->photo ? '/public/images/media/' . $post->user->photo->file : '/public/img/200x200.png'}}" class="avatar img-fluid lazy" height="120" width="120">
                              </div>
-                            
+
                             <h2 class="post-name">
                                <a title="{{$post->title}}" href="{{URL::to('/')}}/post/{{$post->slug}}">
-                                  {{$post->title}}                   
+                                  {{$post->title}}
                                </a>
                             </h2>
 
@@ -64,7 +64,7 @@
             </div> <!-- col 8 -->
 
             <div class="col-md-4">
-                
+
                 <div class="widget_element">
                    {!!$blogsettings->html_sidebar1!!}
                 </div>
@@ -74,12 +74,11 @@
                 </div>
 
             </div>
-
         </div>
       </div>
    </div>
-   
- 
+
+
 
 @endsection
 

@@ -187,7 +187,7 @@ class HomeController extends Controller
             'phone' => 'required',
             'budget' => 'required',
             'comment' => 'required',
-            'g-recaptcha-response' => 'required|captcha'
+            // 'g-recaptcha-response' => 'required|captcha'
         ], $messages);
 
         if ($validator->fails()) {
